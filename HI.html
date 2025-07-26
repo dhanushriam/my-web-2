@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vello Panikkum Poda</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: white;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      animation: pop 1s ease-out forwards, glow 2s infinite alternate;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff3399; }
+      100% { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+    }
+
+    .emoji {
+      font-size: 5em;
+      animation: bounce 2s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      font-size: 0.9em;
+      color: #ddd;
+    }
+
+    #starter {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      color: white;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Welcome Click Screen -->
+  <div id="starter">
+    <h1>👋 Welcome!</h1>
+    <p>Click anywhere to begin...</p>
+  </div>
+
+  <!-- Sound -->
+  <audio id="vello" src="vello.mp3" preload="auto"></audio>
+
+  <!-- Main Content -->
+  <div class="emoji">💨💥🫵</div>
+  <h1>Vello Panikkum Poda!</h1>
+  <footer>Made with attitude 😎</footer>
+
+  <!-- Script -->
+  <script>
+    const audio = document.getElementById('vello');
+    const starter = document.getElementById('starter');
+
+    starter.addEventListener('click', () => {
+      audio.play().catch(e => console.log("Autoplay blocked: " + e));
+      starter.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
